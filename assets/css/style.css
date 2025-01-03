@@ -147,17 +147,24 @@ h4 {
   align-items: center;
   justify-content: flex-start;
   gap: 15px;
-  padding: 22px;
+  padding: 22px 5px;
   overflow: hidden;
   position: relative;
   margin-top: 70px;
   white-space: nowrap;
 }
+.banner-smooth-scrollar .smooth-slider-inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 17px;
+  overflow: hidden;
+}
 .banner-smooth-scrollar::before {
   content: "";
   position: absolute;
   height: 100%;
-  width: 20%;
+  width: 12%;
   top: 0;
   left: -3px;
   border-radius: 35px 0px 0px 35px;
@@ -168,7 +175,7 @@ h4 {
   content: "";
   position: absolute;
   height: 100%;
-  width: 20%;
+  width: 12%;
   top: 0;
   right: -3px;
   border-radius: 0px 35px 35px 0px;
@@ -185,7 +192,7 @@ h4 {
   gap: 15px;
   position: relative;
   z-index: 0;
-  animation: scroll 15s linear infinite;
+  animation: scroll 20s linear infinite;
 }
 .banner-smooth-scrollar ul li {
   display: flex;
@@ -225,6 +232,15 @@ h4 {
   margin-bottom: 50px;
   overflow: hidden;
   cursor: pointer;
+}
+.demo-card.crypto-wallet1 {
+  background: rgba(0, 255, 181, 0.15);
+}
+.demo-card.defi {
+  background: rgba(55, 234, 204, 0.15);
+}
+.demo-card.crypto-token {
+  background: rgba(191, 255, 10, 0.15);
 }
 .demo-card .demo-img {
   border-radius: 20px;
