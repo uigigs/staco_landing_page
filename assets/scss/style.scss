@@ -55,15 +55,11 @@ h4{
     }
 }
 .header-section{
-    position: fixed;
+    position: absolute;
     z-index: 9999;
     top: 0;
     left: 0;
     width: 100%;
-    &.sticky{
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(10px);
-    } 
 }
 .header-inner{
     display: flex;
@@ -147,18 +143,26 @@ h4{
     margin-top: 70px;
     white-space: nowrap;
     &::before{
+        content: '';
         position: absolute;
         height: 100%;
-        width: 5%;
+        width: 20%;
         top: 0;
-        left: 0;
+        left: -3px;
+        border-radius: 35px 0px 0px 35px;
+        background: linear-gradient(270deg, rgba(46, 48, 52, 0.00) 0%, #2E3034 100%);
+        z-index: 1;
     }
     &::after{
+        content: '';
         position: absolute;
         height: 100%;
-        width: 5%;
+        width: 20%;
         top: 0;
-        right: 0;
+        right: -3px;
+        border-radius: 0px 35px 35px 0px;
+        background: linear-gradient(90deg, rgba(46, 48, 52, 0.00) 0%, #2E3034 100%);
+        z-index: 1;
     }
     &:hover{
         ul {
@@ -172,7 +176,7 @@ h4{
         gap: 15px;
         position: relative;
         z-index: 0;
-        animation: scroll 10s linear infinite;
+        animation: scroll 15s linear infinite;
         li{
             display: flex;
             align-items: center;
@@ -525,6 +529,8 @@ h4{
     display: none;
 }
 .mobile-menu{
+    position: relative;
+    z-index: 99999;
     .btn-close{
         background: transparent;
         display: flex;

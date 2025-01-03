@@ -62,16 +62,11 @@ h4 {
 }
 
 .header-section {
-  position: fixed;
+  position: absolute;
   z-index: 9999;
   top: 0;
   left: 0;
   width: 100%;
-}
-.header-section.sticky {
-  background: rgba(0, 0, 0, 0.8);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
 }
 
 .header-inner {
@@ -159,18 +154,26 @@ h4 {
   white-space: nowrap;
 }
 .banner-smooth-scrollar::before {
+  content: "";
   position: absolute;
   height: 100%;
-  width: 5%;
+  width: 20%;
   top: 0;
-  left: 0;
+  left: -3px;
+  border-radius: 35px 0px 0px 35px;
+  background: linear-gradient(270deg, rgba(46, 48, 52, 0) 0%, #2E3034 100%);
+  z-index: 1;
 }
 .banner-smooth-scrollar::after {
+  content: "";
   position: absolute;
   height: 100%;
-  width: 5%;
+  width: 20%;
   top: 0;
-  right: 0;
+  right: -3px;
+  border-radius: 0px 35px 35px 0px;
+  background: linear-gradient(90deg, rgba(46, 48, 52, 0) 0%, #2E3034 100%);
+  z-index: 1;
 }
 .banner-smooth-scrollar:hover ul {
   animation-play-state: paused; /* Pause animation on hover */
@@ -182,7 +185,7 @@ h4 {
   gap: 15px;
   position: relative;
   z-index: 0;
-  animation: scroll 10s linear infinite;
+  animation: scroll 15s linear infinite;
 }
 .banner-smooth-scrollar ul li {
   display: flex;
@@ -534,6 +537,10 @@ h4 {
   display: none;
 }
 
+.mobile-menu {
+  position: relative;
+  z-index: 99999;
+}
 .mobile-menu .btn-close {
   background: transparent;
   display: flex;
