@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <header class="header-section">
+    <header class="header-section" id="header">
         <div class="container">
             <div class="header-inner">
                 <a href="./index.html"><img src="./assets/images/logo/logo.svg" alt="logo"></a>
@@ -31,12 +31,45 @@
                         </li>
                     </ul>
                 </div>
-                <div class="mobile-menu">
-                    
+                <div class="mobile-menu-btn">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation" fdprocessedid="7fbgmc">
+                        <img src="./assets/images/icons/menu.png" alt="icon">
+                    </button>
                 </div>
             </div>
         </div>
     </header>
+    <!-- mobile menu -->
+    <div class="mobile-menu">
+        <div class="offcanvas offcanvas-end mobile-menu-body" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <a href="./index.html" class="mobile-menu-logo" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <img src="./assets/images/logo/logo.svg" alt="logo">
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <img src="./assets/images/icons/close-white.png" alt="icon">
+                </button>
+            </div>
+            <div class="offcanvas-body">
+                <ol class="navbar-nav justify-content-end flex-grow-1 pe-3 mobile-menu-list">
+                        <li><a href="#Demo">Demo Pages</a></li>
+                        <li><a href="#InnerPages">Inner Pages</a></li>
+                        <li><a href="#Features">Features</a></li>
+                        <li>
+                            <a href="https://themeforest.net/user/uigigs/portfolio" class="buy-btn hov-btn">
+                                <span class="btn-text">
+                                    <span>Buy On Envato</span>
+                                    <span>Buy On Envato</span>
+                                </span>
+                            </a>
+                        </li>
+                </ol>
+            </div>
+        </div>
+    </div>
 
     <section class="banner-section" id="Home">
         <div class="overlay">
@@ -604,6 +637,18 @@
     <script src="./assets/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/slick-min.js"></script>
 
+    <!-- sticky header -->
+     <script>
+        document.addEventListener("scroll", () => {
+        const header = document.getElementById("header");
+        if (window.scrollY > 0) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+        });
+     </script>
+    <!-- slider js -->
     <script>
         var nftCategorieSlider = $(".inner-page-slider");
         if (nftCategorieSlider.length) {
@@ -644,6 +689,37 @@
             });
         }
     </script>
+
+    <!-- mobile menu js -->
+     <script>
+       // Select the offcanvas element and the elements that should trigger its closing
+        const offcanvas = document.getElementById('offcanvasNavbar');
+        const closeTriggers = document.querySelectorAll('.mobile-menu-logo, .mobile-menu-list li a');
+
+        // Add click event listeners to each trigger
+        closeTriggers.forEach(trigger => {
+            trigger.addEventListener('click', (event) => {
+                const href = trigger.getAttribute('href');
+
+                // Check if href is an anchor link and has a valid target
+                if (href && href.startsWith('#')) {
+                    const targetSection = document.querySelector(href);
+
+                    // If a valid target section exists, prevent default and scroll smoothly
+                    if (targetSection) {
+                        event.preventDefault();
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
+                // Close the offcanvas
+                const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
+                if (offcanvasInstance) {
+                    offcanvasInstance.hide();
+                }
+            });
+        });
+     </script>
 </body>
 
 </html>

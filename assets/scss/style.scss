@@ -55,10 +55,15 @@ h4{
     }
 }
 .header-section{
-    position: absolute;
+    position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
     width: 100%;
+    &.sticky{
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+    } 
 }
 .header-inner{
     display: flex;
@@ -516,7 +521,55 @@ h4{
     }
 }
 
+.mobile-menu-btn{
+    display: none;
+}
+.mobile-menu{
+    .btn-close{
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.mobile-menu-body{
+    background: #121519;
+}
 
+.mobile-menu-list{
+    text-align: center;
+    margin-top: 30px;
+    li{
+        margin-bottom: 15px;
+        a{
+            color: #FFF;
+            &.buy-btn{
+                border-radius: 25px;
+                background: #0095FF;
+                backdrop-filter: blur(10px);
+                padding: 7px 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50px;
+                max-width: 190px;
+                margin: auto;
+                .btn-text{
+                    span{
+                        transform: translateY(-3px);
+                    }
+                }
+                &:hover{
+                    .btn-text{
+                        span{
+                            transform: translateY(-35px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 
 /*-- responsive stye --*/
 @media screen and (min-width: 1300px){
@@ -647,6 +700,9 @@ h4{
     }
 }
 @media screen and (max-width: 768px){
+    .mobile-menu-btn{
+        display: block;
+    }
     body{
         font-size: 16px;
     }
