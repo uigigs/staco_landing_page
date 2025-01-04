@@ -11,7 +11,7 @@ body{
     font-family: Outfit;
     font-size: 18px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 177.778%;
     background: #0D1014;
 }
@@ -43,8 +43,8 @@ h2{
 }
 h4{
     font-size: 24px;
-    font-weight: 700;
-    line-height: 108.333%;
+    font-weight: 600;
+    line-height: 125%;
 }
 .uppercase{
     text-transform: uppercase;
@@ -183,7 +183,7 @@ h4{
         gap: 15px;
         position: relative;
         z-index: 0;
-        animation: scroll 20s linear infinite;
+        animation: scroll 25s linear infinite;
         li{
             display: flex;
             align-items: center;
@@ -431,10 +431,15 @@ h4{
             opacity: 1;
             transform: translateY(0%);
         }
+        .feature-icon{
+            opacity: 100%;
+        }
     }
     .feature-icon{
         position: relative;
         z-index: 1;
+        opacity: 80%;
+        transition: 0.3s;
     }
     h4{
         margin-top: 30px;
@@ -502,7 +507,6 @@ h4{
     p{
         color: rgba(255, 255, 255, 0.80);
         font-size: 16px;
-        font-weight: 500;
         margin-bottom: 0;
         width: 45%;
         span{
